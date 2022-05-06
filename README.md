@@ -13,8 +13,8 @@ The core gene set: The core gene set consists of single-copy homologous genes th
 <br />
 <p align="center">
   <img 
-    width="1050"
-    height="275"
+    width="930"
+    height="260"
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/Workflow_v2.png"
   >
 <p align = "center">
@@ -57,15 +57,17 @@ Fig. Executing UBCG pipeline
 - ‘cd’ in to ‘UBCG_ver2’ directory
 - Put all the genome sequences in ‘fasta’ format in the ‘fasta’ directory. Leave the other directories as they are.
   - path: it is empty. It will be automatically filled up with the ‘ucg’ files that are generated one from each genome sequences in the ‘fasta’ directory. ‘ucg’ files contain the core genes and their metadata
-	- hmm: leave it as it is. It contains the hmm profile of extracted genes
+  - hmm: leave it as it is. It contains the hmm profile of extracted genes
   - output: Empty. Leave it as it is. It will automatically be filled up. It will contain the directory labelled as specied in the ‘run_id’ flag. This directory contains the tree files in ‘newick’ format that can be visualised in Geneious or FigTree.
   - ProgramPath: contains the paths of the external program. If the external programs are installed in their default locations, then the ‘programPath’ doesn’t require any modification. 	Just keep a copy of this text file in ‘UBCG_ver2’ and one copy in one directory up.
-	- ucg: no usage of this folder
+  - ucg: no usage of this folder
 
 
 
 
 - Make a csv file as follows that will contain the metadata (details about the genomes)
+
+
 
 
 
