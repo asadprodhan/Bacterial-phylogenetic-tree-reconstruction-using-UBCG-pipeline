@@ -12,8 +12,17 @@ The core gene set: The core gene set consists of single-copy homologous genes th
 
 <p align="center">
   <img 
-    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/Workflow.png"
+    width="1050"
+    height="275"
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/Workflow_v2.png"
   >
+<p align = "center">
+Fig. Executing UBCG pipeline
+</p>
+<br />
+<br />
+
+
 
 
 - Visit the UBCG manual, http://leb.snu.ac.kr/ubcg2/usage
@@ -53,7 +62,25 @@ The core gene set: The core gene set consists of single-copy homologous genes th
 	- ucg: no usage of this folder
 
 
+
+
+- Make a csv file as follows that will contain the metadata (details about the genomes)
+
+
+
+<p align="center">
+  <img 
+    width="740"
+    height="340"
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/metadata.PNG"
+  >
+<p align = "center">
+Fig. An example of metadata file (csv)
+</p>
+
+
 - Run the following script as follows: ./ucg_metadata_strain.sh
+
 
 ```
 #!/bin/bash
@@ -79,12 +106,14 @@ done < ${SAMPLES}
     - Prodigal predicts CDSs in each genome      
     - HMMSearch identifies the core genes in each genome      
     - Generates one UCG (Updated Core Genes) file per gemone 
-    - You can add more metadata to the UCG files (see the following script)
-    - Metadata can be used to label the tree branches
+    - We can add more metadata to the 'metadata.csv' file and specify them in the script (see below)
+    - The supplied metadata will be recoded to the UCG files and can be used to label the tree branches
     
     
 
 ### **Including more metadata:**
+
+
 
 
 ```
@@ -159,7 +188,20 @@ What it does:
     
  
 The metadata are recorded under the 'genome_info' section of the 'ucg' files. See an example below:
-ucg_genome_info.png
+
+
+
+<p align="center">
+  <img 
+    width="740"
+    height="340"
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/ucg_genome_info.png"
+  >
+<p align = "center">
+Fig. An example of UCG file with metadata
+</p>
+
+
 
 ## **References**
 
