@@ -9,6 +9,13 @@ The core gene set: The core gene set consists of single-copy homologous genes th
 
 ## **How to run?**
 
+
+<p align="center">
+  <img 
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/Workflow.png"
+  >
+
+
 - Visit the UBCG manual, http://leb.snu.ac.kr/ubcg2/usage
 - Download the UBCG2.zip file
 - Install the external program as listed in the above manual. Some example commands for installing on Ubuntu 18 are presented below:
