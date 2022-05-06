@@ -13,7 +13,7 @@ The core gene set: The core gene set consists of single-copy homologous genes th
 <br />
 <p align="center">
   <img 
-    width="930"
+    width="900"
     height="260"
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/Workflow_v2.png"
   >
@@ -74,7 +74,7 @@ Fig. Executing UBCG pipeline
 <p align="center">
   <img 
     width="740"
-    height="340"
+    height="380"
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/metadata.PNG"
   >
 <p align = "center">
@@ -197,7 +197,7 @@ The metadata are recorded under the 'genome_info' section of the 'ucg' files. Se
 <p align="center">
   <img 
     width="850"
-    height="470"
+    height="500"
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/ucg_genome_info.png"
   >
 <p align = "center">
