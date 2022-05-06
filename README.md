@@ -6,10 +6,11 @@ UBCG stands for ‘the Up-to-date Bacterial Core Gene’. It is a bioinformatics
 <br />
 <br />
 The core gene set: The core gene set consists of single-copy homologous genes that are present in most species in the Bacteria domain. The total number of genes in the core set will vary depending on the taxonomic scope from domain to species level. The UBCG version 1 has 92 genes in its core set that are single-copy and present in 95% of the 1428 bacterial species (Na et al., 2018). On the other hand, the UBCG version2 has updated the core gene set with 81 genes selected out of 3508 bacterial genomes (Kim et al., 2021, p. 2).  
-
+<br />
+<br />
 ## **How to run?**
-
-
+<br />
+<br />
 <p align="center">
   <img 
     width="1050"
@@ -101,7 +102,7 @@ do
 done < ${SAMPLES}
 ```
 
-  What the script does:
+ **What the script does:**
   
     - Prodigal predicts CDSs in each genome      
     - HMMSearch identifies the core genes in each genome      
@@ -153,7 +154,7 @@ done < ${SAMPLES}
 java -jar UBCGtree.jar align -ucg_dir ./path -run_id mytest1 -leaf label,strain 
 ```
 
-What it does:
+**What it does:**
 
 
     - MAFFT performs multiple sequence alignment for each gene across all the genomes
@@ -176,7 +177,7 @@ What it does:
 java -jar UBCGtree.jar replace ./output/mytest1/mytest1.trm UBCG -strain
 ```
 
-What it does:
+**What it does:**
 
 
     - Changes the tree branch labels from ID to strain name
@@ -193,8 +194,8 @@ The metadata are recorded under the 'genome_info' section of the 'ucg' files. Se
 
 <p align="center">
   <img 
-    width="740"
-    height="340"
+    width="850"
+    height="470"
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/ucg_genome_info.png"
   >
 <p align = "center">
