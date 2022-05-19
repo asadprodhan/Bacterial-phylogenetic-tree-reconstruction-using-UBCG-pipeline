@@ -13,8 +13,8 @@ The core gene set: The core gene set consists of single-copy homologous genes th
 <br />
 <p align="center">
   <img 
-    width="900"
-    height="250"
+    width="850"
+    height="240"
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/Workflow_v2.png"
   >
 <p align = "center">
