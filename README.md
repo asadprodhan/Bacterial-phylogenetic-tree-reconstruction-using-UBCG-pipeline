@@ -213,10 +213,10 @@ Fig. An example of UCG file with metadata
 **Step 1: Collect the concatenated alignment of the core genes (aligned_concatenated.fasta) from the UBCG output directory**
 
 
-**Step 2: Convert it to nexus file
+**Step 2: Convert it to nexus file**
 
 
-**Step 3: Then prepare an input file as follows and save it with ‘mrbayes’ extension
+**Step 3: Then prepare an input file as follows and save it with ‘mrbayes’ extension**
 
 
 
@@ -286,7 +286,7 @@ The usage of maximum likelihood method in phylogenetic analysis requires a nucle
 
 
 
-**Step 4: Write a simialr bash script as follows to run MrBayes on a HPC cluster:
+**Step 4: Write a simialr bash script as follows to run MrBayes on a HPC cluster:**
 
 
 ```
@@ -323,10 +323,22 @@ srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
 > In the above command line, purple is the location of the software executable; green is the input file that is keep in “in the /xxx/xxx/xxx/TreeTesting”
 
 
-**Step 5: sbatch the above bash script
+**Step 5: sbatch the above bash script**
 
 
-**Step 6: Once the MrBayes run completed, it generates the following output files:
+**Step 6: Once the MrBayes run completed, it generates the following output files:**
+
+
+
+<p align="center">
+  <img 
+    width="740"
+    height="380"
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/metadata.PNG"
+  >
+<p align = "center">
+Fig. MyBayes ourput files
+</p>
 
 
 
@@ -338,7 +350,7 @@ srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
 
 
 
-## **What if your run gets timeout?
+## **What if your run gets timeout?**
 
 
 
