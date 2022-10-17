@@ -206,17 +206,18 @@ Fig. An example of UCG file with metadata
 
 
 
-**How to reconstruct MrBayes phylogenetic tree using the UBCG core genes**
+
+## **How to reconstruct MrBayes phylogenetic tree using the UBCG core genes**
 
 
-
-Step 1: Collect the concatenated alignment of the core genes (aligned_concatenated.fasta) from the UBCG output directory
-
-
-Step 2: Convert it to nexus file
+**Step 1: Collect the concatenated alignment of the core genes (aligned_concatenated.fasta) from the UBCG output directory**
 
 
-Step 3: Then prepare an input file as follows and save it with ‘mrbayes’ extension
+**Step 2: Convert it to nexus file
+
+
+**Step 3: Then prepare an input file as follows and save it with ‘mrbayes’ extension
+
 
 
 ```
@@ -242,7 +243,7 @@ END;
 ```
 
 
-***Notes:*** 
+## **Notes:**
 
 
 > sumt or sump is calculated as  = (number of generations/sample frequency)/4 
@@ -260,15 +261,35 @@ The usage of maximum likelihood method in phylogenetic analysis requires a nucle
 
 
 - “ngen” is the number of generations for which the analysis will be run
-# “printfreq” controls the frequency with which brief info about the analysis is printed to screen. The default value is 1,000.
-# “samplefreq” determines how often the chain is sampled; the default is every 500 generations
-# diagnostics calculated every “diagnfreq” generation
-# By default, MrBayes uses Metropolis coupling to improve the MCMC sampling of the target distribution. The Swapfreq, Nswaps, Nchains, and Temp settings together control the Metropolis coupling behavior. When Nchains is set to 1, no heating is used. When Nchains is set to a value n larger than 1, then n−1 heated chains are used. By default, Nchains is set to 4, meaning that MrBayes will use 3 heated chains and one “cold” chain.
-# “sumt” summarises statistics and creates five additional files
-# “sump” summarises the parameter values
-# Every time the diagnostics are calculated, either a fixed number of samples (burnin) or a percentage of samples (burninfrac) from the beginning of the chain is discarded.
 
-Step 4: Write the following bash script and run it on ‘Magnus’ as sbatch name_of_the_script.sh:
+
+- “printfreq” controls the frequency with which brief info about the analysis is printed to screen. The default value is 1,000
+
+
+- “samplefreq” determines how often the chain is sampled; the default is every 500 generations
+
+
+- diagnostics calculated every “diagnfreq” generation
+
+
+- By default, MrBayes uses Metropolis coupling to improve the MCMC sampling of the target distribution. The Swapfreq, Nswaps, Nchains, and Temp settings together control the Metropolis coupling behavior. When Nchains is set to 1, no heating is used. When Nchains is set to a value n larger than 1, then n−1 heated chains are used. By default, Nchains is set to 4, meaning that MrBayes will use 3 heated chains and one “cold” chain
+- 
+
+
+- “sumt” summarises statistics and creates five additional files
+
+
+- “sump” summarises the parameter values
+
+
+- Every time the diagnostics are calculated, either a fixed number of samples (burnin) or a percentage of samples (burninfrac) from the beginning of the chain is discarded
+
+
+
+**Step 4: Write a simialr bash script as follows to run MrBayes on a HPC cluster:
+
+
+```
 #!/bin/bash
 #SBATCH --account=XXXX
 #SBATCH --partition=workq
@@ -295,34 +316,69 @@ cd /xxx/xxx/xxx/TreeTesting
 # Command line
 srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
 
-In the above command line, purple is the location of the software executable; green is the input file that is keep in “in the /xxx/xxx/xxx/TreeTesting”
-•	sbatch the script 
-•	Once the MrBayes run completed, it generates the following output files: 
-•	
-•	
-•	The output file with ‘.p’ extension is called a tracer file and can be visualised in ‘Tracer’ 1
-•	The output file with ‘.con.tre’ extension is the file to be used to construct the tree. ‘FigTree’ can process this file, construct the tree and label the nodes with the probability values
+```
 
-What if your run gets timeout?
+
+
+> In the above command line, purple is the location of the software executable; green is the input file that is keep in “in the /xxx/xxx/xxx/TreeTesting”
+
+
+**Step 5: sbatch the above bash script
+
+
+**Step 6: Once the MrBayes run completed, it generates the following output files:
+
+
+
+
+- The output file with ‘.p’ extension is called a tracer file and can be visualised in ‘Tracer’ 1
+
+
+- The output file with ‘.con.tre’ extension is the file to be used to construct the tree. ‘FigTree’ can process this file, construct the tree and label the nodes with the probability values
+
+
+
+## **What if your run gets timeout?
+
+
 
 If run time ends before completing the phylogenetic tree, then:
-•	Add “append=yes” as follows in your input file:
+
+
+- Add “append=yes” as follows in your input file:
+
+
+```
 mcmc ngen=50000000 append=yes printfreq=100 samplefreq=1000 diagnfreq=1000 nchains=4 savebrlens=yes;
-•	And the following loop function to your script and 
-•	And sbatch the new script again
+```
 
-What happens if you put “append=yes” in the initial run:
-You get an error: 
-o	Could not open file "XXXXX.ckp"
-o	Could not find the checkpoint file XXXXX.mrbayes.ckp'.
-o	Make sure it is in the working directory.
-o	Error in command "Mcmc"
-o	There was an error on at least one processor
-o	The error occurred when reading char. 100-100 on line 65 in the file 'Tree51_97_Edit.mrbayes' 
+
+- sbatch the above bash script again
 
 
 
+## **What happens if you put “append=yes” in the initial run:
 
+
+You get the following error messages: 
+
+
+- Could not open file "XXXXX.ckp"
+
+
+- Could not find the checkpoint file XXXXX.mrbayes.ckp'.
+
+
+- Make sure it is in the working directory.
+
+
+- Error in command "Mcmc"
+
+
+- There was an error on at least one processor
+
+
+- The error occurred when reading char. 100-100 on line 65 in the file 'Tree51_97_Edit.mrbayes' 
 
 
 
