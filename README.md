@@ -209,10 +209,118 @@ Fig. An example of UCG file with metadata
 **How to reconstruct MrBayes phylogenetic tree using the UBCG core genes**
 
 
-- Collect the concatenated alignment of the core genes (aligned_concatenated.fasta) from the UBCG output directory
-- Convert it to nexus file
-- Save it with “MrBayes” extension
-- Run phylogenetic tree reconstruction (detailed protocol at XXXXX)
+
+Step 1: Collect the concatenated alignment of the core genes (aligned_concatenated.fasta) from the UBCG output directory
+
+
+Step 2: Convert it to nexus file
+
+
+Step 3: Then prepare an input file as follows and save it with ‘mrbayes’ extension
+
+
+```
+
+#NEXUS
+BEGIN DATA;
+dimensions ntax=5 nchar=17804;
+format datatype=dna missing=? gap=-;
+	matrix
+	sample_A	ATGAATAAATGATTATATTCTACTAAT …….	
+sample_B           ATGAATAAATGATTATATTCTACTAATCACAA …..
+
+;
+end;
+BEGIN mrbayes;
+lset nst=6 rates=invgamma; 
+propset ExtTBR$prob=0; 
+mcmc ngen=50000000 printfreq=100 samplefreq=1000 diagnfreq=1000 nchains=4 savebrlens=yes;
+sumt burnin=12500;
+sump burnin=12500;
+END;
+
+```
+
+
+***Notes:*** 
+
+
+> sumt or sump is calculated as  = (number of generations/sample frequency)/4 
+
+
+> ‘4’ represents 25%
+
+
+> Though the file has Windows file ending, MrBayes program doesn’t require dos2linux conversion
+
+
+- “lset nst=6 rates=invgamma” sets a nucleotide substitution model called “GTR + I + G” 
+The usage of maximum likelihood method in phylogenetic analysis requires a nucleotide substitution model such as “GTR + I + G”. “GTR + I + G” is a widely used General Time Reversible (GTR) nucleotide substitution model with gamma-distributed rate variation across sites (G) and a proportion of invariable sites (I).  The invariable sites account for the static, unchanging sites in a dataset. 
+
+
+
+- “ngen” is the number of generations for which the analysis will be run
+# “printfreq” controls the frequency with which brief info about the analysis is printed to screen. The default value is 1,000.
+# “samplefreq” determines how often the chain is sampled; the default is every 500 generations
+# diagnostics calculated every “diagnfreq” generation
+# By default, MrBayes uses Metropolis coupling to improve the MCMC sampling of the target distribution. The Swapfreq, Nswaps, Nchains, and Temp settings together control the Metropolis coupling behavior. When Nchains is set to 1, no heating is used. When Nchains is set to a value n larger than 1, then n−1 heated chains are used. By default, Nchains is set to 4, meaning that MrBayes will use 3 heated chains and one “cold” chain.
+# “sumt” summarises statistics and creates five additional files
+# “sump” summarises the parameter values
+# Every time the diagnostics are calculated, either a fixed number of samples (burnin) or a percentage of samples (burninfrac) from the beginning of the chain is discarded.
+
+Step 4: Write the following bash script and run it on ‘Magnus’ as sbatch name_of_the_script.sh:
+#!/bin/bash
+#SBATCH --account=XXXX
+#SBATCH --partition=workq
+#SBATCH --time=24:00:00
+#SBATCH --nodes=4
+#SBATCH --ntasks=8
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=12
+#SBATCH --export=NONE
+. /etc/bash.bashrc
+
+module unload PrgEnv-cray
+module unload cray-mpich2
+module load PrgEnv-gnu
+module load cray-mpich
+
+module list
+
+export OMP_NUM_THREADS=1
+
+# Input file location
+cd /xxx/xxx/xxx/TreeTesting
+
+# Command line
+srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
+
+In the above command line, purple is the location of the software executable; green is the input file that is keep in “in the /xxx/xxx/xxx/TreeTesting”
+•	sbatch the script 
+•	Once the MrBayes run completed, it generates the following output files: 
+•	
+•	
+•	The output file with ‘.p’ extension is called a tracer file and can be visualised in ‘Tracer’ 1
+•	The output file with ‘.con.tre’ extension is the file to be used to construct the tree. ‘FigTree’ can process this file, construct the tree and label the nodes with the probability values
+
+What if your run gets timeout?
+
+If run time ends before completing the phylogenetic tree, then:
+•	Add “append=yes” as follows in your input file:
+mcmc ngen=50000000 append=yes printfreq=100 samplefreq=1000 diagnfreq=1000 nchains=4 savebrlens=yes;
+•	And the following loop function to your script and 
+•	And sbatch the new script again
+
+What happens if you put “append=yes” in the initial run:
+You get an error: 
+o	Could not open file "XXXXX.ckp"
+o	Could not find the checkpoint file XXXXX.mrbayes.ckp'.
+o	Make sure it is in the working directory.
+o	Error in command "Mcmc"
+o	There was an error on at least one processor
+o	The error occurred when reading char. 100-100 on line 65 in the file 'Tree51_97_Edit.mrbayes' 
+
+
 
 
 
