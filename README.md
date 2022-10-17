@@ -329,14 +329,16 @@ srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
 
 
 
+<br />
 <p align="center">
   <img 
-    
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/MrBayes_output_files.png"
   >
-<p align = "center">
-Fig. MyBayes ourput files
 </p>
+<p align = "center">
+Fig. MrBayes ourput files.
+</p>
+
 
 
 
@@ -364,6 +366,19 @@ mcmc ngen=50000000 append=yes printfreq=100 samplefreq=1000 diagnfreq=1000 nchai
 
 
 - sbatch the above bash script again
+
+
+
+<br />
+<p align="center">
+  <img 
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/WhatHappensWhenAppend_v2.PNG"
+  >
+</p>
+<p align = "center">
+Fig. What happens when you append 'yes'.
+</p>
+
 
 
 
