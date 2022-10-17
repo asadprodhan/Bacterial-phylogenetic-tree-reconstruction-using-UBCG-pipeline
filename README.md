@@ -334,7 +334,7 @@ srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
   <img 
     width="740"
     height="380"
-    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/metadata.PNG"
+    src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/MrBayes_output_files.png"
   >
 <p align = "center">
 Fig. MyBayes ourput files
@@ -369,7 +369,8 @@ mcmc ngen=50000000 append=yes printfreq=100 samplefreq=1000 diagnfreq=1000 nchai
 
 
 
-## **What happens if you put “append=yes” in the initial run:
+## **What happens if you put “append=yes” in the initial run:**
+
 
 
 You get the following error messages: 
