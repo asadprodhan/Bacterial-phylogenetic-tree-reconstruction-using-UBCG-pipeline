@@ -206,6 +206,18 @@ Fig. An example of UCG file with metadata
 
 
 
+**How to reconstruct MrBayes phylogenetic tree using the UBCG core genes**
+
+
+- Collect the concatenated alignment of the core genes (aligned_concatenated.fasta) from the UBCG output directory
+- Convert it to nexus file
+- Save it with “MrBayes” extension
+- Run phylogenetic tree reconstruction (detailed protocol at XXXXX)
+
+
+
+
+
 ## **References**
 
 1.	Na, S.-I. et al. UBCG: Up-to-date bacterial core gene set and pipeline for phylogenomic tree reconstruction. J Microbiol. 56, 280–285 (2018).
