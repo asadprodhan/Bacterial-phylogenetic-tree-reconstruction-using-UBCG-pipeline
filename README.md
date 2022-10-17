@@ -228,7 +228,7 @@ dimensions ntax=5 nchar=17804;
 format datatype=dna missing=? gap=-;
 	matrix
 	sample_A	ATGAATAAATGATTATATTCTACTAAT …….	
-sample_B           ATGAATAAATGATTATATTCTACTAATCACAA …..
+        sample_B        ATGAATAAATGATTATATTCTACTAATCACAA …..
 
 ;
 end;
