@@ -273,7 +273,6 @@ The usage of maximum likelihood method in phylogenetic analysis requires a nucle
 
 
 - By default, MrBayes uses Metropolis coupling to improve the MCMC sampling of the target distribution. The Swapfreq, Nswaps, Nchains, and Temp settings together control the Metropolis coupling behavior. When Nchains is set to 1, no heating is used. When Nchains is set to a value n larger than 1, then n−1 heated chains are used. By default, Nchains is set to 4, meaning that MrBayes will use 3 heated chains and one “cold” chain
-- 
 
 
 - “sumt” summarises statistics and creates five additional files
@@ -332,8 +331,7 @@ srun -n 8 /path_to_MrBayes/bin/mb InputFile.mrbayes
 
 <p align="center">
   <img 
-    width="740"
-    height="380"
+    
     src="https://github.com/asadprodhan/Bacterial-phylogenetic-tree-reconstruction-using-UBCG-pipeline/blob/main/MrBayes_output_files.png"
   >
 <p align = "center">
