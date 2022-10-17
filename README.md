@@ -343,7 +343,7 @@ Fig. MrBayes ourput files.
 
 
 
-- The output file with ‘.p’ extension is called a tracer file and can be visualised in ‘Tracer’ 1
+- The output file with ‘.p’ extension is called a tracer file and can be visualised in ‘Tracer’
 
 
 - The output file with ‘.con.tre’ extension is the file to be used to construct the tree. ‘FigTree’ can process this file, construct the tree and label the nodes with the probability values
