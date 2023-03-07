@@ -54,6 +54,13 @@ Fig. Executing UBCG pipeline
 
 
 - Extract the UBCG2.zip file
+
+
+	```
+	unzip UBCG2.zip
+	```
+	
+	
 - ‘cd’ in to ‘UBCG_ver2’ directory
 - Put all the genome sequences in ‘fasta’ format in the ‘fasta’ directory. Leave the other directories as they are.
   - path: it is empty. It will be automatically filled up with the ‘ucg’ files that are generated one from each genome sequences in the ‘fasta’ directory. ‘ucg’ files contain the core genes and their metadata
