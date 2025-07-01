@@ -59,31 +59,42 @@ Fig. Executing UBCG pipeline
 - Download the UBCG2.zip file
 - Install the external program as listed in the above manual. Some example commands for installing on Ubuntu 18 are presented below:
 
-  - Prodigal [required for the 1st script]:
 
+- Update
 
-    ```sudo apt-get update -y```
-    
-    ```sudo apt-get install -y prodigal```
-    
-    
-  - HMMER [required for the 1st script]:
+	```
+ 	sudo apt-get update -y
+ 	```
 
-    ```sudo apt-get install -y hmmer```
+- Prodigal [required for the 1st script]:
+  
+  	```
+	sudo apt-get install -y prodigal
+   	```
     
-  - MAFFT [required for the 2nd script]:
+    
+- HMMER [required for the 1st script]:
 
-    ```sudo apt-get install -y mafft```
+  	```
+	sudo apt-get install -y hmmer
+   	```
     
-  - RAxML [required for the 2nd script]:
+- MAFFT [required for the 2nd script]:
 
-    ```sudo apt-get install -y raxml```
+  	```
+	sudo apt-get install -y mafft
+   	```
     
-  - Furthermore, we will need to install Java RE 8+ and FastTree 2.1.x
+- RAxML [required for the 2nd script]:
+
+  	```
+	sudo apt-get install -y raxml
+   	```
+    
+- Furthermore, we will need to install Java RE 8+ and FastTree 2.1.x
 
 
 - Extract the UBCG2.zip file
-
 
 	```
 	unzip UBCG2.zip
