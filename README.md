@@ -1,4 +1,33 @@
-# **Bacterial Phylogenetic Tree Reconstruction Using UBCG Pipeline** <br />
+
+
+<h1 align="center">Bacterial Phylogenetic Tree Reconstruction Using UBCG Pipeline</h1>
+
+
+<h3 align="center">M. Asaduzzaman Prodhan<sup>*</sup></h3>
+
+
+<div align="center"><b> DPIRD Diagnostics and Laboratory Services </b></div>
+
+
+<div align="center"><b> Department of Primary Industries and Regional Development </b></div>
+
+
+<div align="center"><b> 3 Baron-Hay Court, South Perth, WA 6151, Australia </b></div>
+
+
+<div align="center"><b> <sup>*</sup>Correspondence: Asad.Prodhan@dpird.wa.gov.au </b></div>
+
+
+<br />
+
+
+<p align="center">
+  <a href="https://github.com/asadprodhan/Average-Nucleotide-Identity-ANI-analysis/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-GPL%203.0-yellow.svg" alt="License GPL 3.0" style="display: inline-block;"></a>
+  <a href="https://orcid.org/0000-0002-1320-3486"><img src="https://img.shields.io/badge/ORCID-green?style=flat-square&logo=ORCID&logoColor=white" alt="ORCID" style="display: inline-block;"></a>
+</p>
+
+
+<br />
 
 
 ## **Introduction**
